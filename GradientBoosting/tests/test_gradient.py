@@ -3,7 +3,6 @@ import numpy as np
 import sys
 import os
 
-# Adjust sys.path to include the parent directory (GradientBoosting/)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from model.model import GradientBoostingClassifier
@@ -95,6 +94,6 @@ def test_compare_with_sklearn():
     custom_accuracy = np.mean(custom_predictions == y)
     sklearn_accuracy = np.mean(sklearn_predictions == y)
     
-    # Check that accuracies are within 5% of each other
+    # Check that accuracies are within 3% of each other
     assert abs(custom_accuracy - sklearn_accuracy) <= 0.03, \
         f"Custom accuracy ({custom_accuracy:.4f}) differs from sklearn accuracy ({sklearn_accuracy:.4f}) by more than 5%"
