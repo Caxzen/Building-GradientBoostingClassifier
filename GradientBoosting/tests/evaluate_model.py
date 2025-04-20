@@ -2,7 +2,6 @@ import numpy as np
 import sys
 import os
 
-# Adjust sys.path to include the parent directory (GradientBoosting/)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from model.model import GradientBoostingClassifier
@@ -13,7 +12,6 @@ def compute_classification_report(y_true, y_pred):
     y_pred = np.array(y_pred)
     classes = np.unique(y_true)
     
-    # Initialize metrics
     report = {}
     for cls in classes:
         report[cls] = {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 0}
@@ -45,8 +43,7 @@ def compute_classification_report(y_true, y_pred):
     macro_recall = np.mean([report[cls]['recall'] for cls in classes])
     macro_f1 = np.mean([report[cls]['f1-score'] for cls in classes])
     total_support = np.sum([report[cls]['support'] for cls in classes])
-    
-    # Format and print report
+
     print("\nClassification Report:")
     print("              precision    recall  f1-score   support")
     print()
